@@ -58,3 +58,14 @@ h1, h2, h3 { font-family: var(--font-heading); }
   @media (max-width: 768px) {
     .bento-grid { display: none; } /* unreachable below breakpoint via JS swap anyway, but keep CSS honest */
   }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 280ms var(--ease-micro) 0ms both; }
+  .hero-title   { animation: fadeUp 280ms var(--ease-micro) 60ms both; }
+  .hero-sub     { animation: fadeUp 280ms var(--ease-micro) 120ms both; }
+  .hero-cta     { animation: fadeUp 280ms var(--ease-micro) 180ms both; }
+  /* last animation starts at 180ms, runs 280ms → finishes at 460ms, under the 500ms cap */
+  .data-flow-svg path { stroke-dasharray: 8 1000; animation: draw 1.2s var(--ease-reflow) forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
