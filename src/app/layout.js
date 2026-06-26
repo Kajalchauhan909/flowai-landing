@@ -1,4 +1,5 @@
 import { JetBrains_Mono, Inter } from 'next/font/google';
+import './globals.css';
 
 const headingFont = JetBrains_Mono({
   subsets: ['latin'],
