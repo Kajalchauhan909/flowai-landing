@@ -25,3 +25,36 @@ body {
   color: #F1F6F4;
 }
 h1, h2, h3 { font-family: var(--font-heading); }
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(140px, auto);
+    gap: 1rem;
+  }
+  .accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .feature-node {
+    border: 1px solid color-mix(in srgb, var(--tw-color-primary, #ccc) 20%, transparent);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: transform var(--dur-micro) var(--ease-micro), box-shadow var(--dur-micro) var(--ease-micro);
+  }
+  .feature-node:hover, .feature-node.is-active {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .feature-node .panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows var(--dur-reflow) var(--ease-reflow);
+  }
+  .feature-node.is-active .panel { grid-template-rows: 1fr; }
+
+  @media (max-width: 768px) {
+    .bento-grid { display: none; } /* unreachable below breakpoint via JS swap anyway, but keep CSS honest */
+  }
